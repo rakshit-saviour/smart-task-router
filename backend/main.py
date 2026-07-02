@@ -9,14 +9,10 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
+from .router import route_request
+from .db import init_db, log_request, get_all_requests
 
-try:
-    from .router import route_request
-    from .db import init_db, log_request, get_all_requests
-except ImportError:
-    from router import route_request
-    from db import init_db, log_request, get_all_requests
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 app = FastAPI(title="Smart Task Router")
 
