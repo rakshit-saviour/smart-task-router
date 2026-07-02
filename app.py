@@ -7,7 +7,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-BACKEND_URL = "http://localhost:8000"
+BACKEND_URL = API_URL = os.getenv("BACKEND_URL")
 
 st.set_page_config(page_title="Smart Task Router", page_icon="🧭", layout="centered")
 
